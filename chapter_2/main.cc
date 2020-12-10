@@ -12,5 +12,8 @@ int main(int argc, char** argv){
     int array[] = {5, 2, 4, 6, 1, 3};
     
     InsertionSortCPtr(array, 6);
+
+    std::vector<int> v = {1, 2, 3};
+    InsertionSort(v);
     return 0;
 }
