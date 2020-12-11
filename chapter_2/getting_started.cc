@@ -49,3 +49,34 @@ void InsertionSort(std::vector<int>* v) {
         *std::next(i) = key;
     }
 }
+
+void InsertionSortCPtr2_1_2(int* array, int length) {
+    for (int j = 1; j < length; j++) {
+        int key = array[j];
+        int i = j - 1;
+
+        while (i >= 0 && array[i] < key) {
+            array[i + 1] = array[i];
+            i--;
+        }
+        array[i + 1] = key;
+    }
+}
+
+void InsertionSort2_1_2(std::vector<int>* v) {
+    for (auto j = std::next(v->rbegin()); j != v->rend(); j++) {
+        int key = *j;
+        std::vector<int>::reverse_iterator i = std::prev(j);
+
+        while (*i > key) {
+            *std::next(i)  = *i;
+            if (i == v->rbegin()) {
+                i--;
+                break;
+            }
+            i--;
+        }
+        *std::next(i) = key;
+    }
+}
+
