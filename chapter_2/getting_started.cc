@@ -141,11 +141,10 @@ void Exercise_2_1_4_NBitBinaryAdd(std::vector<int> a, std::vector<int> b) {
     std::vector<int> c;
 
     int carry = 0;
-    int val = 0;
     for (auto a_it = a.rbegin(), b_it = b.rbegin();
            a_it != a.rend() && b_it != b.rend();
            a_it++, b_it++) {
-        c.insert(c.begin(), val = (*a_it == *b_it) ? carry : carry ^ 1);
+        c.insert(c.begin(), (*a_it == *b_it) ? carry : carry ^ 1);
         carry = (*a_it == *b_it) ? *a_it : carry;
     }
     c.insert(c.begin(), carry);
