@@ -15,17 +15,22 @@ void InsertionSortCPtr(int*, int);
 // Insertion sort implementation using C++ std vectors
 void InsertionSort(std::vector<int>*);
 
-// 2.1-2 Rewrite the INSERTION_SORT procedure to sort into 
+// 2.1-2 Rewrite the INSERTION_SORT procedure to sort into
 // nonincreasing instead of non-decreasing order
-void InsertionSortCPtr_2_1_2(int*, int);
+void Exercise_2_1_2_InsertionSortCPtr(int*, int);
 
 // 2.1-2 using C++ and reverse iteration
-void InsertionSort_2_1_2(std::vector<int>*);
+void Exercise_2_1_2_InsertionSort(std::vector<int>*);
 
 // 2.1-3 Linear Search using C pointers.
-void LinearSearchCPtr_2_1_3(int*, int, int);
+void Exercise_2_1_3_LinearSearchCPtr(int*, int, int);
 
 // 2.1-3 Linear Search using C++ std vectors
-void LinearSearch_2_1_3(std::vector<int>, int);
+void Exercise_2_1_3_LinearSearch(std::vector<int>, int);
+
+// 2.1-4 Adding to n-bit binary integers, stored in two n-element
+// arrays A and B. The sum of the two integers should be stored in
+// binary form in an (n + 1) element array C.
+/* void Exercise_2_1_4_NBitBinaryAdd(int*, int*); */
 
 #endif // ALGOS_CHAPTER_2_GETTING_STARTED_H_
