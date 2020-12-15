@@ -1,5 +1,6 @@
 #include "getting_started.h"
 
+#include <limits.h>
 #include <stdio.h>
 
 #include <algorithm>
@@ -113,6 +114,11 @@ void Exercise_2_1_3_LinearSearch(std::vector<int> v, int target) {
 }
 
 void Exercise_2_1_4_NBitBinaryAddC(int* a, int* b, int length) {
+    printf("a: 0 ");
+    PrintCPtrArray(a, length);
+    printf("b: 0 ");
+    PrintCPtrArray(b, length);
+
     int* c = (int*)malloc((sizeof(int) * length) + sizeof(int));
 
     int carry = 0;
@@ -134,10 +140,16 @@ void Exercise_2_1_4_NBitBinaryAddC(int* a, int* b, int length) {
     }
 
     c[0] = carry;
+    printf("c: ");
     PrintCPtrArray(c, length + 1);
 }
 
 void Exercise_2_1_4_NBitBinaryAdd(std::vector<int> a, std::vector<int> b) {
+    std::cout << "a: 0 ";
+    PrintVector(a);
+    std::cout << "b: 0 ";
+    PrintVector(b);
+
     std::vector<int> c;
 
     int carry = 0;
@@ -148,5 +160,27 @@ void Exercise_2_1_4_NBitBinaryAdd(std::vector<int> a, std::vector<int> b) {
         carry = (*a_it == *b_it) ? *a_it : carry;
     }
     c.insert(c.begin(), carry);
+
+    std::cout << "c: ";
     PrintVector(c);
+}
+
+void Exercise_2_2_2_SelectionSortC(int* array, int length) {
+    int smallest = INT_MAX;
+    int smallest_it = 0;
+
+    for (int i = 0; i < length - 1; i++) {
+        for(int j = i; j < length; j++) {
+            if (array[j] < smallest) {
+                smallest = array[j];
+                smallest_it = j;
+            }
+        }
+        int temp = array[i];
+        array[i] = array[smallest_it];
+        array[smallest_it] = temp;
+
+        smallest = INT_MAX;
+        smallest_it = 0;
+    }
 }

@@ -36,4 +36,7 @@ void Exercise_2_1_4_NBitBinaryAddC(int*, int*, int);
 // 2.1-4 Using ternary operator in C++
 void Exercise_2_1_4_NBitBinaryAdd(std::vector<int>, std::vector<int>);
 
+// 2.2-2 Selection sort
+void Exercise_2_2_2_SelectionSortC(int*, int);
+
 #endif  // ALGOS_CHAPTER_2_GETTING_STARTED_H_
