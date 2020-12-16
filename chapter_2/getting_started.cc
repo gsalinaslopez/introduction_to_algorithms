@@ -1,6 +1,7 @@
 #include "getting_started.h"
 
 #include <limits.h>
+#include <math.h>
 #include <stdio.h>
 
 #include <algorithm>
@@ -170,7 +171,7 @@ void Exercise_2_2_2_SelectionSortC(int* array, int length) {
     int smallest_it = 0;
 
     for (int i = 0; i < length - 1; i++) {
-        for(int j = i; j < length; j++) {
+        for (int j = i; j < length; j++) {
             if (array[j] < smallest) {
                 smallest = array[j];
                 smallest_it = j;
@@ -182,5 +183,51 @@ void Exercise_2_2_2_SelectionSortC(int* array, int length) {
 
         smallest = INT_MAX;
         smallest_it = 0;
+    }
+}
+
+void MergeC(int* array, int left_bound, int pivot, int right_bound) {
+    int left_subarray_size = ((pivot - left_bound) + 2);
+    int* left_subarray = (int*)malloc(
+            (sizeof(int)) * (left_subarray_size));
+    int right_subarray_size = ((right_bound - pivot) + 1);
+    int* right_subarray = (int*)malloc(
+            (sizeof(int)) * (right_subarray_size));
+
+    for (int i = 0; i < left_subarray_size; i++) {
+        left_subarray[i] = array[left_bound + i];
+    }
+    left_subarray[left_subarray_size - 1] = INT_MAX;
+
+    for (int i = 0; i < right_subarray_size; i++) {
+        right_subarray[i] = array[pivot + 1 + i];
+    }
+    right_subarray[right_subarray_size - 1] = INT_MAX;
+
+    PrintCPtrArray(array, (right_bound - left_bound) + 1);
+    PrintCPtrArray(left_subarray, left_subarray_size);
+    PrintCPtrArray(right_subarray, right_subarray_size);
+
+    int i = 0, j = 0;
+    for (int k = left_bound; k <= right_bound; k++) {
+        if (left_subarray[i] <= right_subarray[j]) {
+            array[k] = left_subarray[i++];
+        } else {
+            array[k] = right_subarray[j++];
+        }
+    }
+    PrintCPtrArray(array, (right_bound - left_bound) + 1);
+}
+
+void MergeSortC(int* array, int left_bound, int right_bound) {
+    if (left_bound < right_bound) {
+        int pivot = (int)floor((left_bound + right_bound) / 2);
+        MergeSortC(array, left_bound, pivot);
+        printf("Out of left-side recursion with l: %d, p: %d, r: %d\n",
+                left_bound, pivot, right_bound);
+        MergeSortC(array, pivot + 1, right_bound);
+        printf("Out of right-side recursion with l: %d, p: %d, r: %d\n",
+                left_bound, pivot, right_bound);
+        MergeC(array, left_bound, pivot, right_bound);
     }
 }

@@ -23,7 +23,7 @@ O(n^2)
 
 ## 2.2-2
 
-Loop invariant: all elements from *A*[0..*i*] are smaller than any other number in *A*[*i*..n]
+Loop invariant: all elements from *A*[0..*i*] are smaller than any other number in *A*[*i* + 1..n]
 
 The loop invariant tells us that when *i = n* all elements (*A*[*n*] in this case) will be greater than those on *A*[0..*i*], thus making it unnecesary to run until *A*[*n*].
 

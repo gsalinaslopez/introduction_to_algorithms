@@ -39,4 +39,10 @@ void Exercise_2_1_4_NBitBinaryAdd(std::vector<int>, std::vector<int>);
 // 2.2-2 Selection sort
 void Exercise_2_2_2_SelectionSortC(int*, int);
 
+// Merge function used in merge sort, using C
+void MergeC(int*, int, int, int);
+
+// Merge sort implementation using C.
+void MergeSortC(int*, int, int);
+
 #endif  // ALGOS_CHAPTER_2_GETTING_STARTED_H_

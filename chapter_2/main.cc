@@ -71,11 +71,24 @@ void Exercise_2_2_2() {
     PrintCPtrArray(array, 6);
 }
 
+void AlgorithmMergeSort() {
+    printf("----------------------------\n");
+    printf("Merge Sort\n");
+
+    int array[] = {2, 4, 5, 7, 1, 2, 3, 6};
+    /* MergeSortC(array, 0, 7); */
+
+    int array2[] = {3, 41, 52, 26, 38, 57, 9, 49};
+    MergeSortC(array2, 0, 7);
+    /* MergeC(array, 0, 3, 7); */
+}
+
 int main(int argc, char** argv) {
     AlgorithmInsertionSort();
     Exercise_2_1_2();
     Exercise_2_1_3();
     Exercise_2_1_4();
     Exercise_2_2_2();
+    AlgorithmMergeSort();
     return 0;
 }
