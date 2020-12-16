@@ -23,16 +23,21 @@ O(n^2)
 
 ## 2.2-2
 
-Loop invariant: all elements from A[0...i] are smaller than any other number in A[i...n]
-The loop invariant tells us that when *i = n* all elements (*A[n]* in this case) will be greater than those on A[0...i], thus making it unnecesary to run until A[n].
-Best-Case: O(n^2), need to check every element to make sure we picked the smallest one
-Worst-Case: O(n^2), same as Best-Case.
+Loop invariant: all elements from *A*[0..*i*] are smaller than any other number in *A*[*i*..n]
+
+The loop invariant tells us that when *i = n* all elements (*A*[*n*] in this case) will be greater than those on *A*[0..*i*], thus making it unnecesary to run until *A*[*n*].
+
+Best-Case: *O*(*n*^2), need to check every element to make sure we picked the smallest one.
+
+Worst-Case: *O*(*n*^2), same as Best-Case.
 
 ## 2.2-3
 
 On average: Half the elements (*n/2*), the target *v* could be at the beginning as well as at the end.
-Worst-Case: All the elements, the target *v* happens to be at the very end
-Running time: O(n) for both average-case and worst-case
+
+Worst-Case: All the elements, the target *v* happens to be at the very end.
+
+Running time: *O*(*n*) for both average-case and worst-case.
 
 
 ## 2.2-4
