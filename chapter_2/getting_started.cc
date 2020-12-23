@@ -234,43 +234,42 @@ void MergeSortC(int* array, int left_bound, int right_bound) {
 
 void Merge(std::vector<int>* v, int left_bound, int pivot, int right_bound) {
     int left_vector_size = ((pivot - left_bound) + 2);
-    std::vector<int> left_vector;
-    /* int* left_subarray = (int*)malloc( */
-    /*         (sizeof(int)) * (left_subarray_size)); */
+    std::vector<int> left_vector(left_vector_size - 1);
     int right_vector_size = ((right_bound - pivot) + 1);
-    std::vector<int> right_vector;
-    /* int* right_subarray = (int*)malloc( */
-    /*         (sizeof(int)) * (right_subarray_size)); */
+    std::vector<int> right_vector(right_vector_size - 1);
 
-    std::copy_n(v->begin(), left_vector_size - 1, left_vector.begin());
+    std::copy_n(v->begin() + left_bound, left_vector_size - 1, left_vector.begin());
     left_vector.push_back(INT_MAX);
-    /* for (int i = 0; i < left_subarray_size; i++) { */
-    /*     left_subarray[i] = array[left_bound + i]; */
-    /* } */
-    /* left_subarray[left_subarray_size - 1] = INT_MAX; */
 
-    std::copy_n(v->begin() + (left_vector_size - 1), right_vector_size - 1,
+    std::copy_n(v->begin() + (pivot + 1), right_vector_size - 1,
             right_vector.begin());
     right_vector.push_back(INT_MAX);
 
+    PrintVector(*v);
     PrintVector(left_vector);
     PrintVector(right_vector);
-    /* for (int i = 0; i < right_subarray_size; i++) { */
-    /*     right_subarray[i] = array[pivot + 1 + i]; */
-    /* } */
-    /* right_subarray[right_subarray_size - 1] = INT_MAX; */
 
-    /* PrintCPtrArray(array, (right_bound - left_bound) + 1); */
-    /* PrintCPtrArray(left_subarray, left_subarray_size); */
-    /* PrintCPtrArray(right_subarray, right_subarray_size); */
+    auto left_vector_it = left_vector.begin();
+    auto right_vector_it = right_vector.begin();
+    auto merge_modify_vector =
+        [&l = left_vector_it, &r = right_vector_it](int& n) {
+            n = (*l <= *r) ? *(l++) : *(r++);
+        };
+    std::for_each(v->begin() + left_bound,
+            v->begin() + right_bound + 1, merge_modify_vector);
 
-    /* int i = 0, j = 0; */
-    /* for (int k = left_bound; k <= right_bound; k++) { */
-    /*     if (left_subarray[i] <= right_subarray[j]) { */
-    /*         array[k] = left_subarray[i++]; */
-    /*     } else { */
-    /*         array[k] = right_subarray[j++]; */
-    /*     } */
-    /* } */
-    /* PrintCPtrArray(array, (right_bound - left_bound) + 1); */
+    PrintVector(*v);
+}
+
+void MergeSort(std::vector<int>* v, int left_bound, int right_bound) {
+    if (left_bound < right_bound) {
+        int pivot = (int)floor((left_bound + right_bound) / 2);
+        MergeSort(v, left_bound, pivot);
+        printf("Out of left-side recursion with l: %d, p: %d, r: %d\n",
+                left_bound, pivot, right_bound);
+        MergeSort(v, pivot + 1, right_bound);
+        printf("Out of right-side recursion with l: %d, p: %d, r: %d\n",
+                left_bound, pivot, right_bound);
+        Merge(v, left_bound, pivot, right_bound);
+    }
 }

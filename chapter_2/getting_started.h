@@ -48,4 +48,7 @@ void MergeSortC(int*, int, int);
 // Merge function used in merge sort, using C++
 void Merge(std::vector<int>*, int, int, int);
 
+// Merge sort implementation using C++.
+void MergeSort(std::vector<int>*, int, int);
+
 #endif  // ALGOS_CHAPTER_2_GETTING_STARTED_H_

@@ -79,8 +79,18 @@ void AlgorithmMergeSort() {
     MergeSortC(array, 0, 7);
 
     int array2[] = {3, 41, 52, 26, 38, 57, 9, 49};
-    /* MergeSortC(array2, 0, 7); */
+    MergeSortC(array2, 0, 7);
     /* MergeC(array, 0, 3, 7); */
+
+    printf("----------------------------\n");
+    std::vector<int> v = {2, 4, 5, 7, 1, 2, 3, 6};
+    MergeSort(&v, 0, v.size() - 1);
+    /* Merge(&v, 0, 3, 7); */
+
+    std::vector<int> v2 = {3, 41, 52, 26, 38, 57, 9, 49};
+    MergeSort(&v2, 0, 7);
+    /* Merge(&v2, 0, 3, 7); */
+
 }
 
 int main(int argc, char** argv) {
