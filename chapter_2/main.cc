@@ -76,10 +76,10 @@ void AlgorithmMergeSort() {
     printf("Merge Sort\n");
 
     int array[] = {2, 4, 5, 7, 1, 2, 3, 6};
-    /* MergeSortC(array, 0, 7); */
+    MergeSortC(array, 0, 7);
 
     int array2[] = {3, 41, 52, 26, 38, 57, 9, 49};
-    MergeSortC(array2, 0, 7);
+    /* MergeSortC(array2, 0, 7); */
     /* MergeC(array, 0, 3, 7); */
 }
 

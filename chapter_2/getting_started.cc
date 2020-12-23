@@ -194,12 +194,12 @@ void MergeC(int* array, int left_bound, int pivot, int right_bound) {
     int* right_subarray = (int*)malloc(
             (sizeof(int)) * (right_subarray_size));
 
-    for (int i = 0; i < left_subarray_size; i++) {
+    for (int i = 0; i < left_subarray_size - 1; i++) {
         left_subarray[i] = array[left_bound + i];
     }
     left_subarray[left_subarray_size - 1] = INT_MAX;
 
-    for (int i = 0; i < right_subarray_size; i++) {
+    for (int i = 0; i < right_subarray_size - 1; i++) {
         right_subarray[i] = array[pivot + 1 + i];
     }
     right_subarray[right_subarray_size - 1] = INT_MAX;
@@ -230,4 +230,47 @@ void MergeSortC(int* array, int left_bound, int right_bound) {
                 left_bound, pivot, right_bound);
         MergeC(array, left_bound, pivot, right_bound);
     }
+}
+
+void Merge(std::vector<int>* v, int left_bound, int pivot, int right_bound) {
+    int left_vector_size = ((pivot - left_bound) + 2);
+    std::vector<int> left_vector;
+    /* int* left_subarray = (int*)malloc( */
+    /*         (sizeof(int)) * (left_subarray_size)); */
+    int right_vector_size = ((right_bound - pivot) + 1);
+    std::vector<int> right_vector;
+    /* int* right_subarray = (int*)malloc( */
+    /*         (sizeof(int)) * (right_subarray_size)); */
+
+    std::copy_n(v->begin(), left_vector_size - 1, left_vector.begin());
+    left_vector.push_back(INT_MAX);
+    /* for (int i = 0; i < left_subarray_size; i++) { */
+    /*     left_subarray[i] = array[left_bound + i]; */
+    /* } */
+    /* left_subarray[left_subarray_size - 1] = INT_MAX; */
+
+    std::copy_n(v->begin() + (left_vector_size - 1), right_vector_size - 1,
+            right_vector.begin());
+    right_vector.push_back(INT_MAX);
+
+    PrintVector(left_vector);
+    PrintVector(right_vector);
+    /* for (int i = 0; i < right_subarray_size; i++) { */
+    /*     right_subarray[i] = array[pivot + 1 + i]; */
+    /* } */
+    /* right_subarray[right_subarray_size - 1] = INT_MAX; */
+
+    /* PrintCPtrArray(array, (right_bound - left_bound) + 1); */
+    /* PrintCPtrArray(left_subarray, left_subarray_size); */
+    /* PrintCPtrArray(right_subarray, right_subarray_size); */
+
+    /* int i = 0, j = 0; */
+    /* for (int k = left_bound; k <= right_bound; k++) { */
+    /*     if (left_subarray[i] <= right_subarray[j]) { */
+    /*         array[k] = left_subarray[i++]; */
+    /*     } else { */
+    /*         array[k] = right_subarray[j++]; */
+    /*     } */
+    /* } */
+    /* PrintCPtrArray(array, (right_bound - left_bound) + 1); */
 }
