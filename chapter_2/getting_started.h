@@ -51,4 +51,10 @@ void Merge(std::vector<int>*, int, int, int);
 // Merge sort implementation using C++.
 void MergeSort(std::vector<int>*, int, int);
 
+// 2.3-2 Rewrite the MERGE procedure so that it does not use sentinels, instead
+// stopping once either array L or R has had all its elements copied back to A
+// and then copying the remainder of the other array back into A.
+void Exercise_2_3_2_MergeC(int*, int, int, int);
+
+void Exercise_2_3_2_MergeSortC(int*, int, int);
 #endif  // ALGOS_CHAPTER_2_GETTING_STARTED_H_

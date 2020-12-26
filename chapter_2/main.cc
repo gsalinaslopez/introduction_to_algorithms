@@ -80,17 +80,26 @@ void AlgorithmMergeSort() {
 
     int array2[] = {3, 41, 52, 26, 38, 57, 9, 49};
     MergeSortC(array2, 0, 7);
-    /* MergeC(array, 0, 3, 7); */
 
     printf("----------------------------\n");
     std::vector<int> v = {2, 4, 5, 7, 1, 2, 3, 6};
     MergeSort(&v, 0, v.size() - 1);
-    /* Merge(&v, 0, 3, 7); */
 
     std::vector<int> v2 = {3, 41, 52, 26, 38, 57, 9, 49};
     MergeSort(&v2, 0, 7);
-    /* Merge(&v2, 0, 3, 7); */
+}
 
+void Exercise_2_3_2() {
+    printf("----------------------------\n");
+    printf("2_3_2\n");
+
+    int array[] = {2, 4, 5, 7, 1, 2, 3, 6};
+    /* Exercise_2_3_2_MergeC(array, 0, 3, 7); */
+    Exercise_2_3_2_MergeSortC(array, 0, 7);
+
+    int array2[] = {3, 41, 52, 26, 38, 57, 9, 49};
+    /* Exercise_2_3_2_MergeC(array2, 0, 3, 7); */
+    Exercise_2_3_2_MergeSortC(array2, 0, 7);
 }
 
 int main(int argc, char** argv) {
@@ -100,5 +109,6 @@ int main(int argc, char** argv) {
     Exercise_2_1_4();
     Exercise_2_2_2();
     AlgorithmMergeSort();
+    Exercise_2_3_2();
     return 0;
 }

@@ -273,3 +273,61 @@ void MergeSort(std::vector<int>* v, int left_bound, int right_bound) {
         Merge(v, left_bound, pivot, right_bound);
     }
 }
+
+void Exercise_2_3_2_MergeC(int* array, int left_bound, int pivot,
+        int right_bound) {
+    int left_subarray_size = ((pivot - left_bound) + 1);
+    int* left_subarray = (int*)malloc(
+            (sizeof(int)) * (left_subarray_size));
+    int right_subarray_size = ((right_bound - pivot));
+    int* right_subarray = (int*)malloc(
+            (sizeof(int)) * (right_subarray_size));
+
+    for (int i = 0; i < left_subarray_size; i++) {
+        left_subarray[i] = array[left_bound + i];
+    }
+
+    for (int i = 0; i < right_subarray_size; i++) {
+        right_subarray[i] = array[pivot + 1 + i];
+    }
+
+    PrintCPtrArray(array, (right_bound - left_bound) + 1);
+    PrintCPtrArray(left_subarray, left_subarray_size);
+    PrintCPtrArray(right_subarray, right_subarray_size);
+
+    int i = 0, j = 0;
+    for (int k = left_bound; k <= right_bound; k++) {
+        if (left_subarray[i] <= right_subarray[j]) {
+            array[k] = left_subarray[i++];
+        } else {
+            array[k] = right_subarray[j++];
+        }
+
+        if (i == left_subarray_size) {
+            while(j < right_subarray_size) {
+                array[++k] = right_subarray[j++];
+            }
+            break;
+        }
+        if (j == right_subarray_size) {
+            while(i < left_subarray_size) {
+                array[++k] = left_subarray[i++];
+            }
+            break;
+        }
+    }
+    PrintCPtrArray(array, (right_bound - left_bound) + 1);
+}
+
+void Exercise_2_3_2_MergeSortC(int* array, int left_bound, int right_bound) {
+    if (left_bound < right_bound) {
+        int pivot = (int)floor((left_bound + right_bound) / 2);
+        Exercise_2_3_2_MergeSortC(array, left_bound, pivot);
+        printf("Out of left-side recursion with l: %d, p: %d, r: %d\n",
+                left_bound, pivot, right_bound);
+        Exercise_2_3_2_MergeSortC(array, pivot + 1, right_bound);
+        printf("Out of right-side recursion with l: %d, p: %d, r: %d\n",
+                left_bound, pivot, right_bound);
+        Exercise_2_3_2_MergeC(array, left_bound, pivot, right_bound);
+    }
+}
