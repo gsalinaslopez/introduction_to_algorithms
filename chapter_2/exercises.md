@@ -43,3 +43,22 @@ Running time: *O*(*n*) for both average-case and worst-case.
 ## 2.2-4
 
 Difficult to achieve since we cannot know in advance how "sorted" the input array is at the beginning.
+
+## 2.3-3
+
+Base case:
+
+*T*(2) = 2 \* *lg*2 = 2 * 1 = 2 == 2
+
+Inductive hypothesis:
+
+*T*(2^(*i* + 1)) = 2*T*(2^(*i* + 1) / 2) + 2^(*i* + 1) = 2*T*(2^*i*) + 2^(*i* + 1)
+
+Substitute *T*(2^*i*) with 2^*i* \* lg2^*i*
+
+*T*(2^(*i* + 1)) = 2 \* (2^*i* \* lg2^*i*) + 2^(*i* + 1) = 2 \* (2^*i* \* *i*) + 2^(*i* + 1)
+
+*T*(2^(*i* + 1)) = (2^(*i* + *1*) \* *i*) + 2^(*i* + 1) = 2^(*i* + 1) \* (*i* + *1*)
+
+
+*T*(2^(*i* + 1)) = 2^(*i* + 1) \* (lg2^*i* + lg2) = 2^(*i* + 1) \* (lg2^(*i* + *1*))

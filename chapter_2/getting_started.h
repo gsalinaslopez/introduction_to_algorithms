@@ -57,4 +57,5 @@ void MergeSort(std::vector<int>*, int, int);
 void Exercise_2_3_2_MergeC(int*, int, int, int);
 
 void Exercise_2_3_2_MergeSortC(int*, int, int);
+
 #endif  // ALGOS_CHAPTER_2_GETTING_STARTED_H_
