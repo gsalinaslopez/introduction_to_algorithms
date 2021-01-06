@@ -22,15 +22,32 @@
  * SOFTWARE.
 */
 
-#include "divide_and_conquer.h"
+#include "./divide_and_conquer.h"
 
-#include <limits.h>
 #include <stdio.h>
 
-#include <iostream>
-#include <iterator>
-#include <vector>
+void AlgorithmFindMaximumSubarray() {
+    int array[] = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15,
+        -4, 7};
+    MaxSubarray result;
 
-MaxCrossingSubarray FindMaxCrossingSubarrayC(int* array, int left_bound,
-        int middle, int right_bound) {
+    result = FindMaxCrossingSubarrayC(array, 3, 7, 12);
+
+    /* printf("Max left [%d], Max right [%d], sum: %d", */
+            /* result.max_left, result.max_right, result.sum); */
+
+    /* int array2[] = {-25, 20}; */
+    /* result = FindMaxCrossingSubarrayC(array, 2, 2, 3); */
+    /* printf("Max left [%d], Max right [%d], sum: %d", */
+    /*         result.max_left, result.max_right, result.sum); */
+
+    /* result = FindMaxCrossingSubarrayC(array, 0, 7, 15); */
+    /* printf("Max left [%d], Max right [%d], sum: %d", */
+    /*         result.max_left, result.max_right, result.sum); */
+    result = FindMaximumSubarrayC(array, 0, 15);
+}
+
+int main(int argc, char** argv) {
+    AlgorithmFindMaximumSubarray();
+    return 0;
 }

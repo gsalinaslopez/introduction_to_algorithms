@@ -27,14 +27,19 @@
 
 #include <vector>
 
-struct MaxCrossingSubarray {
+// Structure definition for maximum subarray variables
+struct MaxSubarray {
     int max_left;
     int max_right;
     int sum;
 };
 
-typedef MaxCrossingSubarray MaxCrossingSubarray;
+typedef MaxSubarray MaxSubarray;
 
-MaxCrossingSubarray FindMaxCrossingSubarrayC(int*, int, int, int);
+// Maximum Crossing Subarray implementation in C
+MaxSubarray FindMaxCrossingSubarrayC(const int*, int, int, int);
+
+// Maximum Subarray Algorithm in C
+MaxSubarray FindMaximumSubarrayC(const int*, int, int);
 
 #endif  // CHAPTER_3_DIVIDE_AND_CONQUER_H_
