@@ -42,4 +42,12 @@ MaxSubarray FindMaxCrossingSubarrayC(const int*, int, int, int);
 // Maximum Subarray Algorithm in C
 MaxSubarray FindMaximumSubarrayC(const int*, int, int);
 
+// 4_1_2 Write pseudocode for the brute-force method of solving the
+// maximum-subarray problem. Your procedure should run in O(n2) time.
+MaxSubarray Exercise_4_1_2_FindMaximumSubarrayBruteForceC(const int*, int);
+
+// 4_1_3 Change the base case of the recursive algorithm to use the brute-force
+// algorithm whenever the problem size is less than n0
+MaxSubarray Exercise_4_1_3_FindMaximumSubarrayRecursiveAndBruteForceC(
+        const int*, int, int);
 #endif  // CHAPTER_3_DIVIDE_AND_CONQUER_H_
