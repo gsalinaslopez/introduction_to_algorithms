@@ -53,6 +53,7 @@ void AlgorithmFindMaximumSubarray() {
 void Exercise_4_1_2() {
     printf("----------------------------\n");
     printf("4_1_2\n");
+
     int array[] = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15,
         -4, 7};
     Exercise_4_1_2_FindMaximumSubarrayBruteForceC(array, 16);
@@ -60,11 +61,21 @@ void Exercise_4_1_2() {
 void Exercise_4_1_3() {
     printf("----------------------------\n");
     printf("4_1_3\n");
+
     int array[] = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15,
         -4, 7};
-    printf("running 413\n");
     Exercise_4_1_3_FindMaximumSubarrayRecursiveAndBruteForceC(array, 0, 15);
 }
+
+void Exercise_4_1_5() {
+    printf("----------------------------\n");
+    printf("4_1_5\n");
+
+    int array[] = {13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15,
+        -4, 7};
+    Exercise_4_1_2_FindMaximumSubarrayBruteForceC(array, 16);
+}
+
 int main(int argc, char** argv) {
     AlgorithmFindMaximumSubarray();
     Exercise_4_1_2();

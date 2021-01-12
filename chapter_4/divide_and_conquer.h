@@ -50,4 +50,15 @@ MaxSubarray Exercise_4_1_2_FindMaximumSubarrayBruteForceC(const int*, int);
 // algorithm whenever the problem size is less than n0
 MaxSubarray Exercise_4_1_3_FindMaximumSubarrayRecursiveAndBruteForceC(
         const int*, int, int);
+
+// 4_1_5 4.1-5 Use the following ideas to develop a nonrecursive, linear-time 
+// algorithm for the maximum-subarray problem. Start at the left end of the 
+// array, and progress toward the right, keeping track of the maximum subarray 
+// seen so far. Knowing a maximum subarray of A[1..j], extend the answer to 
+// find a maximum subarray ending at index j + 1 by using the following 
+// observation: a maximum subarray of A[1..j + 1] is either a maximum subarray 
+// of A[1..j] or a subarray A[i..j + 1], for some 1 <= i <= j + 1. Determine a 
+// maximum subarray of the form A[i..j + 1] in constant time based on knowing
+// a maximum subarray ending at index j.
+
 #endif  // CHAPTER_3_DIVIDE_AND_CONQUER_H_

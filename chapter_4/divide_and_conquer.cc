@@ -110,6 +110,12 @@ MaxSubarray Exercise_4_1_2_FindMaximumSubarrayBruteForceC(
             }
         }
         sum = 0;
+
+        r = {max_subarray_left_bound, max_subarray_right_bound, max_sum};
+
+        printf("Max left [%d], Max right [%d], sum: %d\n",
+                r.max_left, r.max_right, r.sum);
+        scanf("%d", &sum);
     }
     r = {max_subarray_left_bound, max_subarray_right_bound, max_sum};
 
