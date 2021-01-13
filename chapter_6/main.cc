@@ -27,13 +27,43 @@
 #include <stdio.h>
 
 void AlgorithmMaxHeapify() {
+    printf("----------------------------\n");
+    printf("Algorithm Max Heapify \n");
     int array[] = {27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0};
 
+    PrintCPtrArray(array, 14);
     MaxHeapify(array, 14, 2);
     PrintCPtrArray(array, 14);
 }
 
+void Exercise_6_1_5() {
+    printf("----------------------------\n");
+    printf("6_2_5\n");
+
+    int array[] = {27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0};
+    Heap heap = {0, 14, array};
+    PrintCPtrArray(heap.elements, 14);
+    MaxHeapifyIterative(&heap, 2);
+    PrintCPtrArray(heap.elements, 14);
+}
+
+void AlgorithmBuildHeap() {
+    printf("----------------------------\n");
+    printf("Algorithm Build Heap \n");
+
+    int array[] = {4, 1, 3, 2, 16, 9, 10, 14, 8, 7};
+    Heap heap = {0, 10, array};
+
+    printf("heap size: %d, length: %d\n", heap.size, heap.length);
+    BuildHeap(&heap);
+    printf("heap size: %d, length: %d\n", heap.size, heap.length);
+
+    PrintCPtrArray(heap.elements, heap.length);
+}
+
 int main(int argc, char** argv) {
     AlgorithmMaxHeapify();
+    Exercise_6_1_5();
+    AlgorithmBuildHeap();
     return 0;
 }

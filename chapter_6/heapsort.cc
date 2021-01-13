@@ -81,3 +81,46 @@ void MaxHeapify(int* array, int array_length, int index) {
        MaxHeapify(array, array_length, largest);
     }
 }
+
+void MaxHeapifyIterative(Heap* heap, int index) {
+    while(true) {
+        int left = GetNodeLeftChildIndexC(index);
+        int right = GetNodeRightChildIndexC(index);
+        int largest = 0;
+
+        // base case - bottoms out
+        if ((left > (heap->length - 1)) || (right > (heap->length - 1))) {
+            break;
+        }
+        // TODO: check for heap size
+        if (heap->elements[left] > heap->elements[index]) {
+            largest = left;
+        } else {
+            largest = index;
+        }
+
+        // TODO: check for heap size
+        if (heap->elements[right] > heap->elements[largest]) {
+            largest = right;
+        }
+
+        if (largest != index) {
+            int temp = heap->elements[largest];
+            heap->elements[largest] = heap->elements[index];
+            heap->elements[index] = temp;
+
+           /* MaxHeapify(array, array_length, largest); */
+            index = largest;
+            continue;
+        }
+        break;
+    }
+}
+
+void BuildHeap(Heap* heap) {
+    heap->size = heap->length;
+    int leaf_ends_index = ((int)(floor(heap->length) / 2) - 1);
+
+    for (int i = leaf_ends_index; i >= 0; i--) {
+    }
+}

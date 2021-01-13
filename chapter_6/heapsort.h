@@ -25,6 +25,14 @@
 #ifndef CHAPTER_6_HEAPSORT_H_
 #define CHAPTER_6_HEAPSORT_H_
 
+struct Heap {
+    int size = 0;
+    int length = 0;
+    int* elements;
+};
+
+typedef Heap Heap;
+
 /* #include <vector> */
 // Utility function for printing a C array
 void PrintCPtrArray(const int*, int);
@@ -38,5 +46,11 @@ int GetNodeRightChildIndexC(int);
 
 // Heapsort Max Heapify function
 void MaxHeapify(int*, int, int);
+
+// 6_2_5 Heapsort Max Heapify function - interative
+void MaxHeapifyIterative(Heap*, int);
+
+// Build Heap function
+void BuildHeap(Heap*);
 
 #endif  // CHAPTER_6_HEAPSORT_H_
