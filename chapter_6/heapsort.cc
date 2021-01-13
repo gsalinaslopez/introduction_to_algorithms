@@ -24,7 +24,7 @@
 
 #include "heapsort.h"
 
-/* #include <limits.h> */
+#include <limits.h>
 #include <math.h>
 #include <stdio.h>
 /* #include <string.h> */
@@ -58,9 +58,19 @@ void MaxHeapify(int* array, int array_length, int index) {
     int largest = 0;
 
     // base case - bottoms out
-    if ((left > (array_length - 1)) || (right > (array_length - 1))) {
+    if ((left > (array_length - 1)) && (right > ( - 1))) {
+        /* printf("broke -- left:%d, right:%d, length:%d\n", left, right, heap->length); */
         return;
     }
+
+    if (left > (array_length - 1)) {
+        left = index;
+    }
+
+    if (right > (array_length - 1)) {
+        right = index;
+    }
+
     // TODO: check for heap size
     if (array[left] > array[index]) {
         largest = left;
@@ -83,15 +93,33 @@ void MaxHeapify(int* array, int array_length, int index) {
 }
 
 void MaxHeapifyIterative(Heap* heap, int index) {
+        /* int dummy; */
+        /* printf("went into heap: "); */
+        /* PrintCPtrArray(heap->elements, heap->length); */
+        /* printf("and index [%d]", index); */
+        /* scanf("%d", &dummy); */
+
     while(true) {
         int left = GetNodeLeftChildIndexC(index);
         int right = GetNodeRightChildIndexC(index);
         int largest = 0;
+        /* printf("left:%d, right:%d, length:%d\n", left, right, heap->length); */
+        /* scanf("%d", &dummy); */
 
         // base case - bottoms out
-        if ((left > (heap->length - 1)) || (right > (heap->length - 1))) {
+        if ((left > (heap->length - 1)) && (right > (heap->length - 1))) {
+            /* printf("broke -- left:%d, right:%d, length:%d\n", left, right, heap->length); */
             break;
         }
+
+        if (left > (heap->length - 1)) {
+            left = index;
+        }
+
+        if (right > (heap->length - 1)) {
+            right = index;
+        }
+
         // TODO: check for heap size
         if (heap->elements[left] > heap->elements[index]) {
             largest = left;
@@ -103,6 +131,9 @@ void MaxHeapifyIterative(Heap* heap, int index) {
         if (heap->elements[right] > heap->elements[largest]) {
             largest = right;
         }
+
+        /* printf("largest: %d\n", largest); */
+        /* scanf("%d", &dummy); */
 
         if (largest != index) {
             int temp = heap->elements[largest];
@@ -120,7 +151,14 @@ void MaxHeapifyIterative(Heap* heap, int index) {
 void BuildHeap(Heap* heap) {
     heap->size = heap->length;
     int leaf_ends_index = ((int)(floor(heap->length) / 2) - 1);
+    int dummy;
 
     for (int i = leaf_ends_index; i >= 0; i--) {
+        /* printf("build heap progress on [%d]:\n", i); */
+        /* scanf("%d", &dummy); */
+        MaxHeapifyIterative(heap, i);
+        printf("build heap progress on [%d]:\n", i);
+        PrintCPtrArray(heap->elements, heap->length);
+        /* scanf("%d", &dummy); */
     }
 }

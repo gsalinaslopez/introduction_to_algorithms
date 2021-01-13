@@ -54,11 +54,9 @@ void AlgorithmBuildHeap() {
     int array[] = {4, 1, 3, 2, 16, 9, 10, 14, 8, 7};
     Heap heap = {0, 10, array};
 
-    printf("heap size: %d, length: %d\n", heap.size, heap.length);
     BuildHeap(&heap);
-    printf("heap size: %d, length: %d\n", heap.size, heap.length);
 
-    PrintCPtrArray(heap.elements, heap.length);
+    /* PrintCPtrArray(heap.elements, heap.length); */
 }
 
 int main(int argc, char** argv) {
