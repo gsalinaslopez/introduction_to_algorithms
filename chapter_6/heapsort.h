@@ -45,12 +45,15 @@ int GetNodeLeftChildIndexC(int);
 int GetNodeRightChildIndexC(int);
 
 // Heapsort Max Heapify function
-void MaxHeapify(int*, int, int);
+void MaxHeapify(Heap*, int);
 
 // 6_2_5 Heapsort Max Heapify function - interative
 void MaxHeapifyIterative(Heap*, int);
 
 // Build Heap function
 void BuildHeap(Heap*);
+
+// Algorithm Heapsort
+void Heapsort(Heap*);
 
 #endif  // CHAPTER_6_HEAPSORT_H_

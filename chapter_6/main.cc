@@ -29,10 +29,12 @@
 void AlgorithmMaxHeapify() {
     printf("----------------------------\n");
     printf("Algorithm Max Heapify \n");
-    int array[] = {27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0};
 
-    PrintCPtrArray(array, 14);
-    MaxHeapify(array, 14, 2);
+    int array[] = {27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0};
+    Heap heap = {14, 14, array};
+
+    /* PrintCPtrArray(array, 14); */
+    MaxHeapify(&heap, 2);
     PrintCPtrArray(array, 14);
 }
 
@@ -41,7 +43,7 @@ void Exercise_6_1_5() {
     printf("6_2_5\n");
 
     int array[] = {27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0};
-    Heap heap = {0, 14, array};
+    Heap heap = {14, 14, array};
     PrintCPtrArray(heap.elements, 14);
     MaxHeapifyIterative(&heap, 2);
     PrintCPtrArray(heap.elements, 14);
@@ -56,12 +58,24 @@ void AlgorithmBuildHeap() {
 
     BuildHeap(&heap);
 
-    /* PrintCPtrArray(heap.elements, heap.length); */
+}
+
+void AlgorithHeapsort() {
+    printf("----------------------------\n");
+    printf("Algorithm Heapsort\n");
+
+    int array[] = {27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0};
+    Heap heap = {0, 14, array};
+    PrintCPtrArray(heap.elements, 14);
+
+    Heapsort(&heap);
+    PrintCPtrArray(heap.elements, 14);
 }
 
 int main(int argc, char** argv) {
     AlgorithmMaxHeapify();
     Exercise_6_1_5();
     AlgorithmBuildHeap();
+    AlgorithHeapsort();
     return 0;
 }
